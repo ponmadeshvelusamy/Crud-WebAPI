@@ -3,21 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CrudWebApiClassLibrary;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Crud_WebAPI.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class SchoolAplController : ControllerBase
     {
-         
-        // GET: api/<SchoolAplController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        RegisterRepository objject = new RegisterRepository();
+       // GET: api/<SchoolAplController>
+       [HttpGet]
+        public IEnumerable<SchoolEntity> Get()
         {
-            return new string[] { "value1", "value2" };
+            return objject.Showall();
         }
 
         // GET api/<SchoolAplController>/5
@@ -29,8 +31,9 @@ namespace Crud_WebAPI.Controllers
 
         // POST api/<SchoolAplController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody]SchoolEntity value)
         {
+            objject.SchoolLogin(value);
         }
 
         // PUT api/<SchoolAplController>/5
