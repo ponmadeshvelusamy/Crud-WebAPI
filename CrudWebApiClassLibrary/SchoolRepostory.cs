@@ -62,6 +62,46 @@ namespace CrudWebApiClassLibrary
                 throw;
             }
         }
+        public void EditorUpdate(int SchoolID, long ContactNo, String Email)
+        {
+            try
+            {
+                var Update = $" exec EditorUpdate {SchoolID}, {ContactNo},'{Email}'";
+                objj.Open();
+                objj.Execute(Update);
+                objj.Close();
+
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public void DeleteDetails(int SchoolID)
+            {
+                try
+                {
+                    var Remove = $"exec DeleteDetails {SchoolID}";
+                    objj.Open();
+                    objj.Execute(Remove);
+                    objj.Close();
+
+                }
+                catch(SqlException)
+                {
+                    throw;
+                }
+                catch(Exception)
+                {
+                    throw;
+
+                }
+            }
+        
     }
 }
 

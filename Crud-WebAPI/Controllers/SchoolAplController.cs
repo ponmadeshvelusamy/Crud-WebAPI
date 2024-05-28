@@ -38,14 +38,16 @@ namespace Crud_WebAPI.Controllers
 
         // PUT api/<SchoolAplController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id , long ContactNo, string Email ,[FromBody]SchoolEntity value)
         {
+            objject.EditorUpdate(id,ContactNo,Email);
         }
 
         // DELETE api/<SchoolAplController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            objject.DeleteDetails(id);
         }
     }
 }
